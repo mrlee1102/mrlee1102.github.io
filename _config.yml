@@ -2,10 +2,10 @@
 title: MR Lee
 description: (AI) Developer. Engineer.
 url: https://mrlee1102.github.io
-avatar: /avatar.jpg
+avatar: /assets/avatar.jpg
 paginate: 5
 permalink: pretty
-cover_image: /bg.jpg
+cover_image: /assets/bg.jpg
 
 # Gems
 plugins:
@@ -37,15 +37,6 @@ social:
   links:
     - https://instagram.com/myeong._.ro
     - https://github.com/mrlee1102
-
-# Site Verification Settings
-webmaster_verifications:
-  google: 7x8sk9fbZzdhP8HyrqUVKQeVWsc_LrnJBHEIsSad0-c # fill in your Google verification code
-  bing: # fill in your Bing verification code
-  alexa: # fill in your Alexa verification code
-  yandex: # fill in your Yandex verification code
-  baidu: # fill in your Baidu verification code
-  facebook: # fill in your Facebook verification code
 
 lang: en
 
