@@ -5,5 +5,15 @@
   2. Customize default _includes/custom-head.html in your source directory and insert the given code snippet.
 {% endcomment %}
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W22SBERN01"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W22SBERN01');
+</script>
+
 <link rel="icon" type="image/jpeg" href="{{ site.baseurl }}/assets/avatar.jpg">
 <link rel="apple-touch-icon" type="image/jpeg" href="{{ site.baseurl }}/assets/avatar.jpg">
