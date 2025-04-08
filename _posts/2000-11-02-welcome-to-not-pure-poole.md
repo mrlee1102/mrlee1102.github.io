@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Welcome to Not Pure Poole
-date: 2000-11-02 11:50 +0900
-last_modified_at: 2000-11-02 11:55:01 +0900
+date: 2000-11-02 11:50 +0800
+last_modified_at: 2000-11-02 11:55:01 +0800
 tags: [tutorial]
 toc:  true
 comments: true
