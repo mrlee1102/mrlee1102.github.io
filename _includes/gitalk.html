@@ -1,12 +1,22 @@
 <div id="gitalk-container"></div>
 <script>
+  function generateId() {
+    let path = location.pathname;
+    let hash = 0;
+    for (let i = 0; i < path.length; i++) {
+      hash = ((hash << 5) - hash) + path.charCodeAt(i);
+      hash = hash & hash;
+    }
+    return 'comment' + Math.abs(hash).toString();
+  }
+
   const gitalk = new Gitalk({
     clientID: 'Ov23lifnAblCdOu0FRhS',
     clientSecret: 'e6e51b1f89c2f61ed71ed94a9013f175cfe0db52',
     repo: 'mrlee1102.github.io',
     owner: 'mrlee1102',
     admin: ['mrlee1102'],
-    id: location.pathname,
+    id: generateId(),
     labels: ['comment'],
     distractionFreeMode: false
   });
