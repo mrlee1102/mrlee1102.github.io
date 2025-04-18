@@ -1,49 +1,42 @@
-# MR Lee
+# MR LEE
 
-## AI Developer & Engineer
-인공지능, 특히 강화학습과 딥러닝 분야를 주로 탐구합니다.
+leeroy7321@gmail.com  
+https://mrlee1102.github.io
 
-### Contact
-- Email: leeroy7321@gmail.com
-- Blog: [mrlee1102.github.io](https://mrlee1102.github.io)
-- GitHub: [mrlee1102](https://github.com/mrlee1102)
-- Instagram: [@meng._.ro](https://instagram.com/meng._.ro)
+## EMPLOYMENT
 
-## Publications
+### EH R&C Co., Ltd.
+*AI Research Engineer*  
+2024.12 - Present  
+Seoul, Korea
+- Design and implementation of Spatial Matrix Regression models
+- Optimization and performance improvement of deep learning models
+- Conducting AI application research projects (in Environmental Health field) 
 
-### A Brief Survey of Deep Reinforcement Learning
-MR Lee
+## EDUCATION
 
-Tech Report, 2025
+### Soongsil University, Seoul
+*Master of Science, Information & Telecommunication Engineering*  
+Seq 2021 - Feb 2024  
+- Advisor: Yoan Shin
 
-[Paper](https://mrlee1102.github.io/2025/04/08/a-brief-survey-of-deep-reinforcement-learning/)
+### Soongsil University (Institute.), Seoul
+*Bachelor of Science, Computer Science*  
+Mar 2019 - Feb 2021
 
-## Experience
+## PUBLICATIONS
+- [Anti-Jamming Strategy Based on Reinforcement Learning with Sequence Information](https://ieeexplore.ieee.org/abstract/document/10463328)
 
-### AI Developer
-#### EHR&C
-2023 - Present, Seoul, Korea
-- AI 모델 개발 및 연구
-- 강화학습 기반 시스템 구현
-- 딥러닝 알고리즘 최적화
+## TECHNICAL SKILLS
 
-## Technical Skills
+### Programming Languages & Tools
+- Python (PyTorch, TensorFlow), C/C++ (Model Deploy), MATLAB (Signal Processing)
+- Git, Docker, Unix Systems
 
 ### AI & Machine Learning
-- Deep Learning
 - Reinforcement Learning
-- Computer Vision
-- Natural Language Processing
+- Deep Learning Structure
+- Image/Tensor Data Processing
 
-### Programming
-- Python
-- PyTorch
-- TensorFlow
-- Git / Docker
-
-### Languages
-- Korean (Native)
-- English (Professional)
-
-## Education
-자신의 학력 정보를 추가해주시면 업데이트하겠습니다.
+---
+Last updated: 2025
