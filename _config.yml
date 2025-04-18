@@ -7,6 +7,13 @@ paginate: 5
 permalink: pretty
 cover_image: /assets/bg.jpg
 
+gittalk:
+  enabled: true
+  client_id: Ov23lifnAblCdOu0FRhS
+  client_secret: e6e51b1f89c2f61ed71ed94a9013f175cfe0db52
+  repo: mrlee1102.github.io
+  owner: mrlee1102
+  admin: mrlee1102
 # Gems
 plugins:
   - jekyll-gist
