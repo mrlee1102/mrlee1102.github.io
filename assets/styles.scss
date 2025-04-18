@@ -52,3 +52,59 @@
     margin-left: var(--spacer);
   }
 }
+
+// About page styles
+.contact-info {
+  margin: 2rem 0;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  
+  a {
+    color: #0366d6;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.last-updated {
+  margin-top: 3rem;
+  color: #6c757d;
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+// Section styles
+h2 {
+  border-bottom: 2px solid #eaecef;
+  padding-bottom: 0.3rem;
+  margin-top: 2rem;
+}
+
+h3 {
+  color: #24292e;
+}
+
+// Publication styles
+.publications {
+  margin-left: 1rem;
+  
+  li {
+    margin-bottom: 1rem;
+  }
+}
+
+// Skills section
+.technical-skills {
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  li {
+    margin-bottom: 0.5rem;
+  }
+}
