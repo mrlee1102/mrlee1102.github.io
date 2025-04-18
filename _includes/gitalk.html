@@ -1,0 +1,14 @@
+<script>
+  const gitalk = new Gitalk({
+    clientID:     'YOUR_CLIENT_ID',
+    clientSecret: 'YOUR_CLIENT_SECRET',   // 방문자에게는 없어도 동작하지만
+    repo:  'blog-comments',               // 댓글 저장용 이슈 저장소
+    owner: 'username',
+    admin: ['username'],                  // 초기 이슈 생성 권한
+    id: location.pathname,                // 페이지 고유값 (< 50자)
+    labels: ['comment'],                  // 이슈 라벨
+    distractionFreeMode: false            // 집중모드 off
+  });
+  gitalk.render('gitalk-container');
+  </script>
+  
