@@ -6,7 +6,9 @@ avatar: /assets/avatar.jpg
 paginate: 5
 permalink: pretty
 cover_image: /assets/bg.jpg
-
+comments:
+  provider: gittalk
+  
 gittalk:
   enabled: true
   client_id: Ov23lifnAblCdOu0FRhS
