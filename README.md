@@ -41,7 +41,7 @@ See Not Pure Poole in action with [the demo site](https://vszhub.github.io/not-p
 - [Jekyll Sitemap](https://github.com/jekyll/jekyll-sitemap)
 - [Jekyll Gist](https://github.com/jekyll/jekyll-gist)
 - [Google Analytics](https://analytics.google.com/)
-- [Disqus](https://disqus.com/)
+- [Gitalk](https://github.com/gitalk/gitalk)
 - [Font Awesome](https://fontawesome.com/)
 - [MathJax](https://www.mathjax.org/)
 - Dark mode (enabled automatically via CSS media query)
