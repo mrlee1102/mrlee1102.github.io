@@ -14,6 +14,7 @@ gittalk:
   repo: mrlee1102.github.io
   owner: mrlee1102
   admin: mrlee1102
+
 # Gems
 plugins:
   - jekyll-gist
@@ -55,9 +56,6 @@ sass:
 
 # Google Analytics tracking
 google_analytics: G-W22SBERN01
-
-# Disqus
-# disqus: mrlee1102 
 
 # Specify the author for blog posts
 author:
