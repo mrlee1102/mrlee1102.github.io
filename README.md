@@ -38,7 +38,7 @@ Seoul, Republic of Korea
 
 ## PUBLICATIONS
 
-### Journal Articles
+### Conference Articles
 1. **Anti-Jamming Strategy Based on Reinforcement Learning with Sequence Information**  
    ICAIIC 2024. Osaka, Japan.  
    [Paper Link](https://ieeexplore.ieee.org/abstract/document/10463328)
