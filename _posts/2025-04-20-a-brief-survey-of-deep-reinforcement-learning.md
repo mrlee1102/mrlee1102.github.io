@@ -6,7 +6,6 @@ tags: [Reinforcement Learning, Deep Learning, Survey]
 toc: true
 comments: true
 math: true
-use_math: true
 ---
 
 ## Abstract
@@ -76,11 +75,15 @@ $$ \pi: \mathcal{S} \rightarrow p(\mathcal{A}=a \mid \mathcal{S}) $$
 
 MDP가 <strong>"에피소드형(Episodic)"</strong>이라면 (즉, 길이가 $T$ step인 에피소드가 끝날 때마다 상태가 리셋됨) 하나의 에피소드에서 얻는 상태-행동-보상의 연속적인 과정을 <strong>궤적(Trajectory) 또는 롤아웃(rollout)</strong>이라 칭한다. <strong>각 trajectory에서 누적되는 보상의 총합(즉, 에피소드동안 얻은 순시보상들의 총합)은 반환(return)</strong>이라 하며, 다음 $R$로 정의된다.
 
-$$ R = \sum_{t=0}^{T-1} \gamma^t r_{t+1} $$
+$$ 
+R = \sum_{t=0}^{T-1} \gamma^t r_{t+1} 
+$$
 
 RL의 목표는 모든 상태에서 <strong>기대 반환</strong>을 최대화하는 최적 정책 $\pi^*$를 찾는 것이다.
 
-$$ \pi^* = \argmax_{\pi} \mathbb{E}[R \mid \pi] $$
+$$ 
+\pi^* = \argmax_{\pi} \mathbb{E}[R \mid \pi] 
+$$
 
 또한, $T = \infty$인 "비-에피소드형(Non-episodic)" MDP도 고려할 수 있다. 이 경우에는 $\gamma < 1$이어야 보상의 무한합이 발산하지 않게 유한하도록 형성된다. (즉, $\gamma$를 1보다 작은 값으로 설정하면, 반복이 진행될수록 미래 보상의 기여도가 기하급수적으로 줄어들어 누적 보상 합이 수렴한다. 이는 무한‑수명 작업(ex: 자율주행 순찰)에서도 가치 함수가 안정적으로 평가 및 학습되도록 하기 위해 사용되는 할인 기법이다.)
 <br /><br />
