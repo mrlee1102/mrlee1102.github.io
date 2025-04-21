@@ -96,29 +96,34 @@ RL 설정에서, 자율 <strong>에이전트</strong>는 ML 알고리즘에 의�
 형식적으로 RL은 마르코프 결정 과정(Markov Decision Process; MDP)으로 기술할 수 있으며, MDP는 다음 요소로 구성된다.
 
 Elements of MDP: 
-- 상태 집합 $\mathcal{S}$ 및 초기 상태 분포 $p(s_{0})$
--   행동 집합 $\mathcal{A}$
--  전이 동역학 (상태 전이확률) $\mathcal{T}(s_{t+1} | s_{t}, a_{t})$
-- 순시(즉시, 순간) 보상 함수 $\mathcal{R}(s_{t}, a_{t}, s_{t+1})$
+- 상태 집합 $\mathcal{S}$ 및 초기 상태 분포 $p(s_0)$
+- 행동 집합 $\mathcal{A}$
+- 전이 동역학 (상태 전이확률) $\mathcal{T}(s_{t+1} \mid s_t, a_t)$
+- 순시(즉시, 순간) 보상 함수 $\mathcal{R}(s_t, a_t, s_{t+1})$
 - 할인 인자 $\gamma \in [0,1]$ — 값이 0에 가까울수록 순시 보상(현재 시점 피드백)에 더 큰 가중치를 부여
 <br />
 
-일반적으로 <strong>정책 $\pi$ </strong>는 상태를 행동 확률 분포에 대응시키는 Mapping(사상)을 의미한다.
-$$ \pi :\mathcal{S} \rightarrow p(\mathcal{A}=a|\mathcal{S}) $$
-MDP가 <strong>"에피소드형(Episodic)"</strong>이라면 (즉, 길이가 $T$ step인 에피소드가 끝날 때마다 상태가 리셋됨) 하나의 에피소에서 얻는 상태-행동-보상의 연속적인 과정을 <strong>궤적(Trajectory) 또는 롤아웃(rollout)</strong>이라 칭한다. <strong>각 trajectory에서 누적되는 보상의 총합(즉, 에피소드동안 얻은 순시보상들의 총합)은 반환(return)</strong>이라 하며, 다음 $R$로 정의 된다.
-$$ R=\sum^{T-1}_{t=0} \gamma^{t}r_{t+1}$$
-RL의 목표는 모든 상태에서 <strong>기대 반환</strong>을 최대화하는 최적 정책 $\pi^{\star}$를 찾는 것이다.
-$$\pi^{\star}=\argmax_{\pi} \mathbb{E} [R|\pi]$$
+일반적으로 <strong>정책 $\pi$</strong>는 상태를 행동 확률 분포에 대응시키는 Mapping(사상)을 의미한다.
 
-또한, $T = \infty$인 "비-에피소드형(Non-episodic)" MDP도 고려할 수 있다. 이 경우에는 $\gamma < 1$이어야 보상의 무한합이 발산하지 않게 유한하도록 형성된다. (즉, $\gamma$를 1보다 작은 값으로 설정하면, 반복이 진행될수록 미래 보상의 기여도가 기하급수적으로 줄어들어 누적 보상 합이 수렴한다. 이는 무한‑수명 작업(ex: 자율주행 순찰)에서도 가치 함수가 안정적으로 평가 및 학습되도록 하기 위해 사용되는 할인 기법이다.) 
-<br /> <br />
+$$ \pi: \mathcal{S} \rightarrow p(\mathcal{A}=a \mid \mathcal{S}) $$
+
+MDP가 <strong>"에피소드형(Episodic)"</strong>이라면 (즉, 길이가 $T$ step인 에피소드가 끝날 때마다 상태가 리셋됨) 하나의 에피소드에서 얻는 상태-행동-보상의 연속적인 과정을 <strong>궤적(Trajectory) 또는 롤아웃(rollout)</strong>이라 칭한다. <strong>각 trajectory에서 누적되는 보상의 총합(즉, 에피소드동안 얻은 순시보상들의 총합)은 반환(return)</strong>이라 하며, 다음 $R$로 정의된다.
+
+$$ R = \sum_{t=0}^{T-1} \gamma^t r_{t+1} $$
+
+RL의 목표는 모든 상태에서 <strong>기대 반환</strong>을 최대화하는 최적 정책 $\pi^*$를 찾는 것이다.
+
+$$ \pi^* = \arg\max_{\pi} \mathbb{E}[R \mid \pi] $$
+
+또한, $T = \infty$인 "비-에피소드형(Non-episodic)" MDP도 고려할 수 있다. 이 경우에는 $\gamma < 1$이어야 보상의 무한합이 발산하지 않게 유한하도록 형성된다. (즉, $\gamma$를 1보다 작은 값으로 설정하면, 반복이 진행될수록 미래 보상의 기여도가 기하급수적으로 줄어들어 누적 보상 합이 수렴한다. 이는 무한‑수명 작업(ex: 자율주행 순찰)에서도 가치 함수가 안정적으로 평가 및 학습되도록 하기 위해 사용되는 할인 기법이다.)
+<br /><br />
 
 > <strong>Markov Property</strong>: 다음 <strong>상태는 오직 현재 상태에만 영향을 받으며</strong>, 달리 표현하면 <strong>현재 상태가 주어지면 미래는 과거와 조건부로 독립</strong>이다.
 
+강화학습의 핵심 개념 중 하나는 <strong>마르코프 특성(Markov Property)</strong>이다. $t$시점의 상태인 $s_t$에서 내리는 의사 결정은 과거 상태 $\{s_0, s_1, \dots, s_{t-1}\}$ 전체가 아니라 <strong>직전 상태 $s_{t-1}$</strong>만을 기반으로 해도 충분하다는 의미이다. 대다수의 RL 알고리즘은 이 가정을 채택하지만, 이는 <strong>'상태가 완전히 관측 가능하다'</strong>는 이상적인 전제를 요구하기 때문에 현실적인 면에서 괴리가 존재한다. 따라서 이러한 MDP를 일반화한 개념인 <strong>부분 관측 마르코프 결정 과정 (Partially Observable MDP, POMDP)</strong>를 고려한다.
 
-강화학습의 핵심 개념 중 하나는 <strong>마르코프 특성(Markov Property)</strong>이다. $t$시점의 상태인 $s_{t}$에서 내리는 의사 결정은 과거 상태 $\{ s_{0}, s_{1}, \dots, s_{t-1} \}$ 전체가 아니라 <strong>직전 상태 $s_{t-1}$</strong>만을 기반으로 해도 충분하다는 의미이다.  대다수의 RL 알고리즘은 이 가정을 채택하지만, 이는 <strong>'상태가 완전히 관측 가능하다'</strong>는 이상적인 전제를 요구하기 때문에 현실적인 면에서 괴리가 존재한다. 따라서 이러한 MDP를 일반화한 개념인 <strong>부분 관측 마르코프 결정 과정 (Partially Observable MDP, POMDP) </strong>를 고려한다.
-- POMDP에서는 에이전트가 <strong>관측(Observation) $o_{t} \in \Omega$</strong> 만을 수신한다.
-- 관측의 분포 $p(o_{t+1}|s_{t+1},a_{t})$는 다음 상태 $s_{t+1}$와 직전 행동 $a_{t}$에 의존한다.
+- POMDP에서는 에이전트가 <strong>관측(Observation) $o_t \in \Omega$</strong> 만을 수신한다.
+- 관측의 분포 $p(o_{t+1} \mid s_{t+1}, a_t)$는 다음 상태 $s_{t+1}$와 직전 행동 $a_t$에 의존한다.
 
 제어공학 및 신호처리 문맥에서 보자면, 이는 상태-공간 모델 (State-space model) 상의 측정/관측 매핑(measurement mapping)에 해당되며, 이 매핑 역시 <strong>현재 상태와 이전에 적용된 제어 입력(행동)</strong>에 의해 결정된다고 이해할 수 있다.
 POMDP 알고리즘은 보통 <strong>이전 신념 상태, 수행한 행동, 현재 관측치</strong>를 바탕으로 현 상태에 대한 <strong>신념(*belief*)</strong>을 업데이트 한다. DL에서는 일반적으로 순환 신경망(Recurrent Neural Net; RNN)을 이용하는 접근이 널리 쓰인다. RNN은 순방향 신경망(Feedforward Neural Net; FNN)과 달리 <strong>동적 시스템</strong>이기 때문이다. 이러한 POMDP 해결 방식은, 실제 상태를 직접 관측할 수 없어 추정만 가능한 동적 시스템$\cdot$상태 공간 모델 문제들과 밀접하게 관련되어 있다.
