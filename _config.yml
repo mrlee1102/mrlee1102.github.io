@@ -65,3 +65,8 @@ author:
   name: MR Lee
   url: https://github.com/mrlee1102/
   email: leeroy7321@gmail.com
+
+# MathJax Support
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
