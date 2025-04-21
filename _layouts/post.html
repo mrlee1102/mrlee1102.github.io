@@ -25,6 +25,13 @@ layout: default
     {%- endif -%}
   </div>
 
+  {% if page.toc %}
+    <div class="post-toc">
+      <div class="toc-title">Table of Contents</div>
+      {% include toc.html html=content h_min=2 h_max=3 class="toc-content" %}
+    </div>
+  {% endif %}
+
   {{ content }}
 
   {% if page.tags %}

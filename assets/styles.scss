@@ -108,3 +108,50 @@ h3 {
     margin-bottom: 0.5rem;
   }
 }
+
+// Table of Contents styles
+.post-toc {
+  position: sticky;
+  top: 2rem;
+  right: 0;
+  width: 260px;
+  margin-left: 1rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  float: right;
+
+  .toc-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  .toc-content {
+    font-size: 0.9rem;
+
+    ul {
+      list-style-type: none;
+      padding-left: 1rem;
+      margin-bottom: 0;
+    }
+
+    li {
+      margin: 0.3rem 0;
+      
+      a {
+        color: #495057;
+        text-decoration: none;
+        
+        &:hover {
+          color: #228be6;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .post-toc {
+    display: none;
+  }
+}
