@@ -1,7 +1,7 @@
 ---
 layout: post
 title: A Brief Survey of Deep Reinforcement Learning
-date: 2025-04-21 14:30 +0800
+date: 2025-04-20 14:30 +0800
 tags: [Reinforcement Learning, Deep Learning, Survey]
 toc: true
 comments: true
