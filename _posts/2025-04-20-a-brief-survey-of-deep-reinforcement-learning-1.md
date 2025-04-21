@@ -8,7 +8,7 @@ comments: true
 math: true
 ---
 
-[Paper Link](https://arxiv.org/pdf/1708.05866)
+[Paper Link](https://arxiv.org/pdf/1708.05866) <br />
 <em>A Brief Survey of Deep Reinforcement Learning 논문의 'Abstract - Introduction - Reward driven behaviour' 까지 내용을 다루는 글</em>
 
 ## Abstract
