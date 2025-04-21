@@ -1,41 +1,19 @@
-{% if page.math %}
-<!-- 인라인 수식을 위한 설정 -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [['$', '$']],
-      displayMath: [],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-    }
-  });
-</script>
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-<!-- 디스플레이 수식을 위한 설정 -->
-<script type="text/javascript">
+{%- if page.math -%}
+<!-- MathJax 3 설정 -->
+<script>
 window.MathJax = {
   tex: {
-    tags: 'ams',
-    packages: {'[+]': ['doubleDollar']},
-    inlineMath: [],
-    displayMath: [['$$', '$$']]
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],  <!-- ★ kramdown 대응 ★ -->
+    packages: {'[+]': ['ams']}
   },
   options: {
-    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    skipHtmlTags: ['script','noscript','style','textarea','pre'],
     processHtmlClass: 'tex2jax_process'
-  },
-  startup: {
-    pageReady: () => {
-      return MathJax.startup.defaultPageReady();
-    }
   }
 };
 </script>
-<script type="text/javascript" id="MathJax-script" async
+<script id="MathJax-script" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-{% endif %}
-
+{%- endif -%}
