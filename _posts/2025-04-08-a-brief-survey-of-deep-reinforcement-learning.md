@@ -5,6 +5,7 @@ date:  2025-04-08 14:58 +0800
 tags: [Reinforcement Learning, Deep Learning, Survey]
 toc: true
 comments: true
+math: true
 ---
 
 ## Abstract
@@ -17,7 +18,7 @@ comments: true
 
   
 
-해당 Paper에서는 RL 일반 분야에 대한 소개로 시작하여, <mark>가치 기반 방법</mark>과 <mark>정책 기반 방법</mark>의 주요 흐름으로 내용을 서술한다. 또한, 본 Paper에서는 <strong>Deep Q-Network (DQN)</strong>, <strong>Trust Region Policy Optimization (TRPO)</strong> 및 <strong>Asynchronous Advantage Actor Critic (A3C)</strong>을 포함한 DRL의 핵심 알고리즘을 다룬다. 이와 병행하여 <strong>Deep Neural Network (DNN)</strong>의 고유한 장점을 강조하고 RL을 통한 시각적 이해에 중점을 둔다. <br  />
+해당 Paper에서는 RL 일반 분야에 대한 소개로 시작하여, <strong>가치 기반 방법</strong>과 <strong>정책 기반 방법</strong>의 주요 흐름으로 내용을 서술한다. 또한, 본 Paper에서는 <strong>Deep Q-Network (DQN)</strong>, <strong>Trust Region Policy Optimization (TRPO)</strong> 및 <strong>Asynchronous Advantage Actor Critic (A3C)</strong>을 포함한 DRL의 핵심 알고리즘을 다룬다. 이와 병행하여 <strong>Deep Neural Network (DNN)</strong>의 고유한 장점을 강조하고 RL을 통한 시각적 이해에 중점을 둔다. <br  />
 
   
 
@@ -33,15 +34,15 @@ AI 분야의 주요 목표 중 하나는 환경과 상호 작용하여 최적의
 
   
 
-<mark>경험 기반 자율 학습을 위한 원칙적인 수학적 프레임워크</mark>는 RL [78]이다. RL은 과거에 어느 정도 성공을 거두었지만 [31], [53], [74], [81], 이전 접근 방식은 <mark>확장성이 부족</mark>했고 본질적으로 <mark>상당히 낮은 차원의 문제로 제한</mark>되었다. 이러한 제한 사항은 RL 알고리즘이 다른 알고리즘과 동일한 복잡성 문제를 공유하기 때문에 존재합니다. 즉, <strong>메모리 복잡성</strong>, <strong>계산 복잡성</strong> 및 기계 학습 알고리즘의 경우 <strong>샘플 복잡성</strong> [76]이다. <br  />
+<strong>경험 기반 자율 학습을 위한 원칙적인 수학적 프레임워크</strong>는 RL이다. RL은 과거에 어느 정도 성공을 거두었지만, 전통적인 접근 방식은 <strong>확장성이 부족</strong>했고 본질적으로 <strong>상당히 낮은 차원의 문제로 제한</strong>되었다. 이러한 제한 사항은 RL 알고리즘이 다른 알고리즘과 동일한 복잡성 문제를 공유하기 때문에 존재합니다. 즉, <strong>메모리 복잡성</strong>, <strong>계산 복잡성</strong> 및 기계 학습 알고리즘의 경우 <strong>샘플 복잡성</strong>이다. <br  />
 
   
 
-최근 몇 년 동안 우리가 목격한 것은 DNN의 <mark>강력한 함수 근사 및 표현 학습 속성에 의존적인 딥러닝의 부상</mark>으로, 이러한 복잡성 문제를 극복할 수 있는 새로운 도구를 제공했다. DL의 출현은 <strong>머신러닝 (Machine Learning; ML)</strong>의 여러 분야에 상당한 영향을 미쳐 객체 감지, 음성 인식 및 언어 번역과 같은 작업에서 최첨단 기술을 획기적으로 향상시켰다 [39]. <br  />
+최근 몇 년 동안 우리가 목격한 것은 DNN의 <strong>강력한 함수 근사 및 표현 학습 속성에 의존적인 딥러닝의 부상</strong>으로, 이러한 복잡성 문제를 극복할 수 있는 새로운 도구를 제공했다. DL의 출현은 <strong>머신러닝 (Machine Learning; ML)</strong>의 여러 분야에 상당한 영향을 미쳐 객체 감지, 음성 인식 및 언어 번역과 같은 작업에서 최첨단 기술을 획기적으로 향상시켰다. <br  />
 
   
 
-DL의 가장 중요한 속성은 DNN이 이미지, 텍스트 및 오디오와 같은 고차원 데이터의 압축된 <strong>저차원 표현(특징)</strong>을 자동으로 찾을 수 있다는 것이다. 신경망 아키텍처, 특히 계층적 표현에 <strong>귀납적 편향</strong>을 적용함으로써 <strong>ML 실무자</strong>들은 <mark>차원의 저주</mark>를 해결하는 데 효과적인 진전을 이루었다 [7]. <br  />
+DL의 가장 중요한 속성은 DNN이 이미지, 텍스트 및 오디오와 같은 고차원 데이터의 압축된 <strong>저차원 표현(특징)</strong>을 자동으로 찾을 수 있다는 것이다. 신경망 아키텍처, 특히 계층적 표현에 <strong>귀납적 편향</strong>을 적용함으로써 <strong>ML 실무자</strong>들은 <strong>차원의 저주</strong>를 해결하는 데 효과적인 진전을 이루었다. <br  />
 
   
 
@@ -49,15 +50,15 @@ DL의 가장 중요한 속성은 DNN이 이미지, 텍스트 및 오디오와 �
 
   
 
-DL은 RL이 이전에 다루기 어려웠던 <mark>의사 결정 문제, 즉 고차원 상태 및 액션 공간을 가진 설정으로 확장</mark>할 수 있도록 기여한다. DRL 분야의 최근 연구 중 두 가지 뛰어난 성공 사례가 있다. DRL의 혁명을 시작한 <mark>첫 번째</mark>는 이미지 픽셀에서 직접 Atari 2600 비디오 게임을 초인적인 수준으로 플레이하는 방법을 배울 수 있는 알고리즘의 개발이었다 [47]. RL에서 함수 근사 기술의 불안정성에 대한 솔루션을 제공하는 이 연구는 </mark>RL 에이전트가 보상 신호만을 기반으로 원시적인 고차원 관찰에 대해 훈련될 수 있음</mark>을 설득력 있게 입증한 최초의 연구였다. <br  />
+DL은 RL이 이전에 다루기 어려웠던 <strong>의사 결정 문제, 즉 고차원 상태 및 액션 공간을 가진 설정으로 확장</strong>할 수 있도록 기여한다. DRL 분야의 최근 연구 중 두 가지 뛰어난 성공 사례가 있다. DRL의 혁명을 시작한 <strong>첫 번째</strong>는 이미지 픽셀에서 직접 Atari 2600 비디오 게임을 초인적인 수준으로 플레이하는 방법을 배울 수 있는 알고리즘의 개발이었다. RL에서 함수 근사 기술의 불안정성에 대한 솔루션을 제공하는 이 연구는 </strong>RL 에이전트가 보상 신호만을 기반으로 원시적인 고차원 관찰에 대해 훈련될 수 있음</strong>을 설득력 있게 입증한 최초의 연구였다. <br  />
 
   
 
-<mark>두 번째 뛰어난 성공</mark>은 IBM의 Deep Blue가 20년 전에 체스에서 거둔 역사적인 업적과 유사하게, 인간 세계 챔피언을 바둑에서 물리친 <mark>하이브리드 DRL 시스템인 AlphaGo</mark>의 개발이다 [9]. 체스 게임 시스템을 지배했던 수제 규칙과 달리 AlphaGo는 <mark>지도 학습 및 RL을 사용하여 훈련된 신경망과 기존의 휴리스틱 검색 알고리즘을 결합하여 구성</mark>되었다. <br  />
+<strong>두 번째 뛰어난 성공</strong>은 IBM의 Deep Blue가 20년 전에 체스에서 거둔 역사적인 업적과 유사하게, 인간 세계 챔피언을 바둑에서 물리친 <strong>하이브리드 DRL 시스템인 AlphaGo</strong>의 개발이다 [9]. 체스 게임 시스템을 지배했던 수제 규칙과 달리 AlphaGo는 <strong>지도 학습 및 RL을 사용하여 훈련된 신경망과 기존의 휴리스틱 검색 알고리즘을 결합하여 구성</strong>되었다. <br  />
 
   
 
-이러한 DRL 알고리즘은 로봇 공학과 같이 광범위한 문제에 이미 적용되었으며, 로봇의 제어 정책은 이제 실제 세계의 카메라 입력을 통해 직접 학습할 수 있다 [41], [42]. 기존에는 직접 설계하거나 로봇 상태의 저차원 특징으로부터 학습되었던 컨트롤러의 후속이 된다. <br  />
+이러한 DRL 알고리즘은 로봇 공학과 같이 광범위한 문제에 이미 적용되었으며, 로봇의 제어 정책은 이제 실제 세계의 카메라 입력을 통해 직접 학습할 수 있다. 기존에는 직접 설계하거나 로봇 상태의 저차원 특징으로부터 학습되었던 컨트롤러의 후속이 된다. <br  />
 
   
 
@@ -65,7 +66,7 @@ DL은 RL이 이전에 다루기 어려웠던 <mark>의사 결정 문제, 즉 고
 
   
 
-DNN이 RL에 기여하는 바를 살펴보기 전에 RL 분야 전반은 <strong>  <mark> 상호작용을 통한 학습</mark>  </strong>에 뿌리를 두고 있다. RL 에이전트는 환경과 상호작용하여, 자신의 행동 결과를 관찰<strong>(Observation)</strong>하고 환경적 요소로 정의된 보상 규칙에 대한 보상 값에 따라 자신의 행동을 변화하는 법을 학습한다. 이러한 상호작용(시행착오)를 거듭한 학습 패러다임은 행동주의 심리학에 근간되며, RL의 기반이다. RL에 영향을 준 또다른 주요 분야는 최적 제어(Optimal Control)이며, 특히 동적 계획법 (Dynamic Programming; DP)과 같은 수학적 형식을 RL의 토대로 제공해 왔다. <br  />
+DNN이 RL에 기여하는 바를 살펴보기 전에 RL 분야 전반은 <strong>  <strong> 상호작용을 통한 학습</strong>  </strong>에 뿌리를 두고 있다. RL 에이전트는 환경과 상호작용하여, 자신의 행동 결과를 관찰<strong>(Observation)</strong>하고 환경적 요소로 정의된 보상 규칙에 대한 보상 값에 따라 자신의 행동을 변화하는 법을 학습한다. 이러한 상호작용(시행착오)를 거듭한 학습 패러다임은 행동주의 심리학에 근간되며, RL의 기반이다. RL에 영향을 준 또다른 주요 분야는 최적 제어(Optimal Control)이며, 특히 동적 계획법 (Dynamic Programming; DP)과 같은 수학적 형식을 RL의 토대로 제공해 왔다. <br  />
 
   
 
@@ -84,15 +85,10 @@ RL 설정에서, 자율 <strong>에이전트</strong>는 ML 알고리즘에 의�
   
 
 <div  style="text-align: center">
-
-<figure>
-
-<img  src="/assets/images/posts/2025-04-08-a-brief-survey-of-deep-reinforcement-learning/fig2.png"  alt="Reinforcement Learning Loop">
-
-<figcaption  style="text-align: center">Figure 2</figcaption>
-
-</figure>
-
+    <figure>
+        <img  src="/assets/images/posts/2025-04-08-a-brief-survey-of-deep-reinforcement-learning/fig2.png"  alt="Reinforcement Learning Loop">
+        <figcaption  style="text-align: center">Figure 2</figcaption>
+    </figure>
 </div>
 
 ### 2. A. Markov Decision Process
