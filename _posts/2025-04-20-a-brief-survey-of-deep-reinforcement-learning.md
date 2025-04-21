@@ -8,6 +8,8 @@ comments: true
 math: true
 ---
 
+[Paper Link](https://arxiv.org/pdf/1708.05866)
+
 ## Abstract
 
 <strong>심층 강화 학습(Deep Reinforcement Learning; DRL)</strong>은 인공 지능 분야에 혁명을 일으킬 태세를 갖추고 있으며, 특히 시각 정보를 다루는 영역에서의 더 높은 수준의 이해를 통해 자율 시스템 구축을 향한 발자국을 나타내는 중이다.<br  />
@@ -90,7 +92,7 @@ $$
 
 > <strong>Markov Property</strong>: 다음 <strong>상태는 오직 현재 상태에만 영향을 받으며</strong>, 달리 표현하면 <strong>현재 상태가 주어지면 미래는 과거와 조건부로 독립</strong>이다.
 
-강화학습의 핵심 개념 중 하나는 <strong>마르코프 특성(Markov Property)</strong>이다. $t$시점의 상태인 $s_t$에서 내리는 의사 결정은 과거 상태 $\{s_0, s_1, \dots, s_{t-1}\}$ 전체가 아니라 <strong>직전 상태 $s_{t-1}$</strong>만을 기반으로 해도 충분하다는 의미이다. 대다수의 RL 알고리즘은 이 가정을 채택하지만, 이는 <strong>'상태가 완전히 관측 가능하다'</strong>는 이상적인 전제를 요구하기 때문에 현실적인 면에서 괴리가 존재한다. 따라서 이러한 MDP를 일반화한 개념인 <strong>부분 관측 마르코프 결정 과정 (Partially Observable MDP, POMDP)</strong>를 고려한다.
+강화학습의 핵심 개념 중 하나는 <strong>마르코프 특성(Markov Property)</strong>이다. $t$시점의 상태인 $s_t$에서 내리는 의사 결정은 과거 상태 $ \{ s_0, s_1, \dots, s_{t-1} \}$ 전체가 아니라 <strong>직전 상태 $s_{t-1}$</strong>만을 기반으로 해도 충분하다는 의미이다. 대다수의 RL 알고리즘은 이 가정을 채택하지만, 이는 <strong>'상태가 완전히 관측 가능하다'</strong>는 이상적인 전제를 요구하기 때문에 현실적인 면에서 괴리가 존재한다. 따라서 이러한 MDP를 일반화한 개념인 <strong>부분 관측 마르코프 결정 과정 (Partially Observable MDP, POMDP)</strong>를 고려한다.
 
 - POMDP에서는 에이전트가 <strong>관측(Observation) $o_t \in \Omega$</strong> 만을 수신한다.
 - 관측의 분포 $p(o_{t+1} \mid s_{t+1}, a_t)$는 다음 상태 $s_{t+1}$와 직전 행동 $a_t$에 의존한다.
