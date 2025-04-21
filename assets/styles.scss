@@ -108,3 +108,38 @@ h3 {
     margin-bottom: 0.5rem;
   }
 }
+
+// -----------------------------------------------------------------------------
+// Heading overrides – put these after the existing section in style.scss
+// -----------------------------------------------------------------------------
+
+// ▸ Markdown ##  → <h2>
+.post-content h2 {
+  font-weight: 700;               // 더 굵게
+  font-size:   1.9rem;            // 조금 크게
+  margin:      3rem 0 1.2rem;     // 위·아래 여백 조정
+  padding-bottom: .35rem;         // 밑줄과 텍스트 사이 간격
+  border-bottom: 3px solid #e6e8ea;
+  counter-increment: section;     // 번호 카운터
+}
+
+// 숫자 접두사 “2. ” 를 자동으로 붙이고 싶다면
+.post-content h2::before {
+  content: counter(section) ". ";
+  color:   #4b5563;               // 회색 톤
+}
+
+// ▸ Markdown ###  → <h3>
+.post-content h3 {
+  font-weight: 600;
+  font-size:   1.45rem;
+  margin:      2.2rem 0 .8rem;
+  color:       #111;              // 조금 더 짙은 색
+  counter-increment: subsection;
+}
+
+// 알파벳 접두사 “2.a ” 형태
+.post-content h3::before {
+  content: counter(section) "." counter(subsection, lower-alpha) " ";
+  color:   #6b7280;
+}
