@@ -70,3 +70,12 @@ author:
 markdown: kramdown
 kramdown:
   math_engine: mathjax
+mathjax: true
+mathjax_autoNumber: true
+
+# MathJax specific settings
+mathjax_config:
+  tex2jax:
+    inlineMath: [['$','$'], ['\\(','\\)']]
+    displayMath: [['$$','$$'], ['\\[','\\]']]
+    processEscapes: true
