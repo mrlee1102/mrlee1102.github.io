@@ -23,7 +23,7 @@ $$ V^{\pi}(\mathrm{s})=\mathbb{E}[R\mid \mathrm{s}, \pi]$$
 문제 해결 또는 기대보상을 최대화하는 최적 정책을 찾는 것이 강화학습의 목표인데 **최적 정책 $\pi^{*}$에는 이에 대응하는 최적 상태 가치 함수** $V^{*}(\mathrm{s})$가 존재하며, 다음과 같이 정의된다:
  $$V^{*}(\mathrm{s}) = \max_{\pi}V^{\pi}(\mathrm{s}) \quad \forall \mathrm{s} \in \mathcal{S}$$
 
-여기서 **만약 우리가 $V^{*}(\mathrm{s})$를 알고 있다면**, <mark>**최적 정책**</mark>은 상태 $\mathrm{s}_{t}$에서 가능한 모든 행동들 중에서 다음 상태 $\mathrm{s}_{t+1} \sim \mathcal{T}(\mathrm{s}_{t+1}\mid \mathrm{s}_{t}, a)$를 고려하여 **기댓값** $\mathbb{E}[V^{*}(\mathrm{s}_{t+1})]$을 최대화하는 행동 $a$를 선택함으로써 도출할 수 있다. 이 해설은 아래 수식으로 표현된다:
+여기서 **만약 우리가 $V^{*}(\mathrm{s})$를 알고 있다면**, <mark><strong>최적 정책</strong></mark>은 상태 $\mathrm{s}_{t}$에서 가능한 모든 행동들 중에서 다음 상태 $\mathrm{s}_{t+1} \sim \mathcal{T}(\mathrm{s}_{t+1}\mid \mathrm{s}_{t}, a)$를 고려하여 **기댓값** $\mathbb{E}[V^{*}(\mathrm{s}_{t+1})]$을 최대화하는 행동 $a$를 선택함으로써 도출할 수 있다. 이 해설은 아래 수식으로 표현된다:
 $$\pi^{*}(\mathrm{s}_{t})=\arg\max_{a}\mathbb{E}_{\mathrm{s}_{t+1} \sim \mathcal{T}(\mathrm{s}_{t+1}\mid \mathrm{s}_{t}, a)} [V^{*}(\mathrm{s}_{t+1})].$$
 
 강화학습 또는 MDP 설정에서, 일반적으로 **전이 동역학 (상태 전이확률) $\mathcal{T}$은  알기 어렵거나 정확히 알 수 없다.** 따라서 우리는 또 다른 가치 함수인 **상태-행동 가치 함수(State-Action Value Function) 또는 Q 함수** $Q^{\pi}(s, a)$를 정의한다.
@@ -79,6 +79,24 @@ $$A^{\pi}(s,a)=Q^{\pi}(s,a)-V^{\pi}(s)$$
 | **(d) Monte Carlo** | **Sample + Deep**<br>(단일 샘플 궤적 • 에피소드 종료까지) | 한 에피소드 전체 리턴을 **평균하여** 값 추정 | Every‑Visit / First‑Visit Monte Carlo |
 
 ### 3. C. Policy Search
+
+정책 탐색(Policy Search) 방법은 **가치 함수 모델을 유지하지 않고** 곧바로 최적 정책 $\pi^{*}$를 찾는다. 일반적으로 **매개변수화된 정책** $\pi_{\theta}$를 정의한 뒤, 파라미터 $\theta$를 조정해 **기대 반환** $\mathbb{E}[R\mid \theta]$을 최대화한다.
+최적화는 **그래디언트 기반** 또는 **그래디언트-프리** 기법으로 수행된다.
+- Gradient-free optimisation
+	- 진화 전략, 유전 알고리즘 등 휴리스틱 탐색으로 **저차원 파라미터 공간**을 효과적으로 커버
+	- 대규모 네트워크에도 일부 성공 사례가 있으나, 일반적으로는 샘플 효율이 떨어짐
+- Gradient-based optimisation
+	- Policy-gradient 기법들 (REINFORCE, TRPO, PPO 등)
+	- **고차원 파라미터**를 가진 신경망 정책에 더 샘플-효율적이어서 대부분의 DRL 알고리즘에서 표준 선택
+
+정책을 직접 구성할 때는 **확률 분포의 파라미터**를 출력하는 경우가 많다.
+- 연속 행동 → 정규분포의 **평균 + 표준편차**
+- 이산 행동 → 다항 분포의 **각 행동 확률**
+
+이렇게 하면 **확률적 정책**이 되어 행동을 직접 샘플링할 수 있다. 반면, Gradient-free 방법은 미분 불가능한 정책까지 최적화가 가능하다는 것이 큰 장점이다.
+
+**Policy Gradients:**  그래디언트는 매개변수화(parameterize)된 정책을 개선하는 데 강력한 학습 신호를 제공한다. 그러나 기대 반환(Expectation of Return, $\mathbb{E}[R]$)을 계산하려면, 현재 정책 파라미터가 만들어 내는 '그럴듯한' 궤적(trajectory)들에 대해 평균을 구해야 한다. 이 평균화는 **결정론적 근사**(예: linearisation) 또는 **샘플링을 통한 확률적 근사**가 필요하다. 결정론적 근사는 환경의 전이 확률이 존재할 때 **(Model-based, known MDP)** 적용 가능하다. 보다 일반적인 **model-free (unknown MDP)** RL에서는 $\mathbb{E}[R]$(기대 반환)을 몬테카를로 방식으로 추정한다.
+하지만, 몬테카를로 근사는 확률적 함수의 샘플에 의존적이기 때문에, 그래디언트가 그 샘플을 "통과"할 수 없는 문제가 발생한다. -> 무슨 문제?  
 
 
 ## 4. VALUE FUNCTIONS
