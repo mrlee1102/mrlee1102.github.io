@@ -2,15 +2,16 @@
 layout: post
 title: A Brief Survey of Deep Reinforcement Learning (2)
 date: 2025-04-21 15:26 +0800
-tags: [Reinforcement Learning, Deep Learning, RL Algorithm, Survey]
+tags: [RL, DL, Survey]
 toc: true
 comments: true
 math: true
 ---
 
-[Paper Link](https://arxiv.org/pdf/1708.05866)  <br  />
-
-<em>A Brief Survey of Deep Reinforcement Learning 논문의 'Reinforcement learning algorithms - Value functions - Policy search' 까지 내용을 다루는 글</em>
+> IEEE Signal Processing Magazine, Special Issue on Deep Learning for Image Understanding. [[Paper](https://arxiv.org/pdf/1708.05866)]  
+> Kai Arulkumaran, Marc Peter Deisenroth, Miles Brundage, Anil Anthony Bharath
+> ---  
+> 28 Sep 2017.
 
 ## 3. REINFORCEMENT LEARNING ALGORITHMS
 앞선 [내용](https://mrlee1102.github.io/2025/04/20/a-brief-survey-of-deep-reinforcement-learning-1/)에서는 RL에서 사용되는 주요 형식주의인 MDP에 대한 소개와 RL의 몇 가지 도전과제를 간략하게 살펴보았다. 이후 내용은 다양한 강화학습 알고리즘을 소개하고 구분한다. 먼저, 강화학습 문제를 푸는 데는 크게 **두 가지 주요 접근법**이 있다. **가치 함수 (Value Function) 기반**과 **정책 탐색 (Policy Search) 기반** 방법이다. 또한 이들의 **하이브리드 접근법인 행위자-비판적 (Actor-Critic) 접근법**이 있다.

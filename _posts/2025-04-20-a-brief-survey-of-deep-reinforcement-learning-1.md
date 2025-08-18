@@ -2,14 +2,16 @@
 layout: post
 title: A Brief Survey of Deep Reinforcement Learning (1)
 date: 2025-04-20 14:30 +0800
-tags: [Reinforcement Learning, Deep Learning, Survey]
+tags: [RL, DL, Survey]
 toc: true
 comments: true
 math: true
 ---
 
-[Paper Link](https://arxiv.org/pdf/1708.05866) <br />
-<em>A Brief Survey of Deep Reinforcement Learning 논문의 'Abstract - Introduction - Reward driven behaviour' 까지 내용을 다루는 글</em>
+> IEEE Signal Processing Magazine, Special Issue on Deep Learning for Image Understanding. [[Paper](https://arxiv.org/pdf/1708.05866)]  
+> Kai Arulkumaran, Marc Peter Deisenroth, Miles Brundage, Anil Anthony Bharath
+> ---  
+> 28 Sep 2017.
 
 ## Abstract
 
